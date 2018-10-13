@@ -1,0 +1,47 @@
+<div>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+    <div class="row mt-2">
+      <div class="col-lg-4 mt-2"><p class="display-6">Email</p></div>
+      <div class="col-lg-8"><%= f.email_field :email, autofocus: true, placeholder: "Username OR Email", class: "form-control" %></div>
+    </div>
+
+    <div class="row mt-2">
+      <div class="col-lg-4 mt-2"><p class="display-6">Password</p></div>
+      <div class="col-lg-8"><%= f.password_field :password, autocomplete: "current-password", class: "form-control" %></div>
+    </div>
+
+    <% if devise_mapping.rememberable? -%>
+      <div class="row">
+        <div class="col-lg-4 mt-2"></div>
+        <div class="col-lg-8 mt-2"><p class="display-6"><%= f.check_box :remember_me %> Remember Me</p></div>
+      </div>
+    <% end -%>
+
+    <div class="row justify-content-center">
+      <%= f.submit "Sign In", class: "btn btn-primary" %>
+    </div>
+
+  <% end %>
+</div>
+
+<br>
+<div class="dropdown-divider"></div>
+<br>
+
+<div>
+
+  <a class="btn btn-block btn-sm btn-social btn-facebook text-white">
+    <span class="fa fa-facebook"></span> Sign in with Facebook
+  </a>
+
+
+  <a class="btn btn-block btn-sm btn-social btn-google text-white">
+    <span class="fa fa-google"></span> Sign in with Google
+  </a>
+
+</div>
+
+
+
+
