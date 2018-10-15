@@ -1,0 +1,2 @@
+class NeighborhoodPostLike < ApplicationRecord
+end

@@ -1,0 +1,13 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3 fixed-left mt-2" style="border:1px solid; background-color:white;">
+            <p>Welcome, <%= @user.username %></p>
+        </div>
+        <div class="col-lg-6 mt-2" style="border:1px solid; background-color:white;">
+            <p><%= @user.neighborhood.name %>, <%= @user.town.name %></p>
+        </div>
+        <div class="col-lg-3 fixed-right mt-2" style="border:1px solid; background-color:white;">
+            <p>Sponsor</p>
+        </div>
+    </div>
+</div>

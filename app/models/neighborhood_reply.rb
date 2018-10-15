@@ -1,0 +1,2 @@
+class NeighborhoodReply < ApplicationRecord
+end

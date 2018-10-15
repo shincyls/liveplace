@@ -19,6 +19,8 @@ gem 'uglifier', '>= 1.3.0'
 # Database Schema Management
 gem 'devise', '~> 4.5'
 gem 'city-state', '~> 0.0.13'
+gem 'geocoder', '~> 1.5'
+gem 'nokogiri', '~> 1.8', '>= 1.8.5'
 
 # Styling Libraries
 gem 'bootstrap', '~> 4.1', '>= 4.1.3'

@@ -10,8 +10,13 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.string :first_name, limit: 32
       t.string :last_name, limit: 32
 
-      # Current Living Residential
+
+      # Current Liveplace
       t.references :neighborhood
+      t.references :town
+      t.references :city
+      t.references :state
+      t.references :country
 
       ## Recoverable
       t.string   :reset_password_token

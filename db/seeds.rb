@@ -23,8 +23,28 @@ State.all.each do |s|
     city = CS.cities(s.code, s.country.code)
 
     city.each do |c|
-        City.create(name: c, code: "#{s.code}-#{count}", address: "#{c}, #{s.address}", state_id: s.id)
+        if s.name != "Kuala Lumpur"
+            City.create(name: c, code: "#{s.code}-#{count}", address: "#{c}, #{s.address}", state_id: s.id)
+        else
+            City.create!([
+                {name: "Ampang", code: "#{s.code}-#{count}", address: "#{c}, #{s.address}", state_id: s.id},
+                {name: "Bukit Bintang", code: "#{s.code}-#{count}", address: "#{c}, #{s.address}", state_id: s.id},
+                {name: "Bukit Jalil", code: "#{s.code}-#{count}", address: "#{c}, #{s.address}", state_id: s.id},
+                {name: "Cheras", code: "#{s.code}-#{count}", address: "#{c}, #{s.address}", state_id: s.id},
+                {name: "Titiwangsa", code: "#{s.code}-#{count}", address: "#{c}, #{s.address}", state_id: s.id},
+                {name: "Setiawangsa", code: "#{s.code}-#{count}", address: "#{c}, #{s.address}", state_id: s.id},
+                {name: "Wangsa Maju", code: "#{s.code}-#{count}", address: "#{c}, #{s.address}", state_id: s.id},
+                {name: "Batu Caves", code: "#{s.code}-#{count}", address: "#{c}, #{s.address}", state_id: s.id},
+                {name: "Kepong", code: "#{s.code}-#{count}", address: "#{c}, #{s.address}", state_id: s.id},
+                {name: "Segambut", code: "#{s.code}-#{count}", address: "#{c}, #{s.address}", state_id: s.id},
+                {name: "Lembah Pantai", code: "#{s.code}-#{count}", address: "#{c}, #{s.address}", state_id: s.id},
+                {name: "Seputeh", code: "#{s.code}-#{count}", address: "#{c}, #{s.address}", state_id: s.id},
+                {name: "Bandar Tun Razak", code: "#{s.code}-#{count}", address: "#{c}, #{s.address}", state_id: s.id}
+            ])
+        end
         count += 1
     end
 end
+
+
 

@@ -78,6 +78,10 @@ ActiveRecord::Schema.define(version: 2018_10_12_110042) do
     t.string "first_name", limit: 32
     t.string "last_name", limit: 32
     t.bigint "neighborhood_id"
+    t.bigint "town_id"
+    t.bigint "city_id"
+    t.bigint "state_id"
+    t.bigint "country_id"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -92,10 +96,14 @@ ActiveRecord::Schema.define(version: 2018_10_12_110042) do
     t.string "unconfirmed_email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["city_id"], name: "index_users_on_city_id"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
+    t.index ["country_id"], name: "index_users_on_country_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["neighborhood_id"], name: "index_users_on_neighborhood_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["state_id"], name: "index_users_on_state_id"
+    t.index ["town_id"], name: "index_users_on_town_id"
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
