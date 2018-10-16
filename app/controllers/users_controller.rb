@@ -4,6 +4,12 @@ class UsersController < ApplicationController
     # before_action :home_params, only: [:set_home]
     
     def index
+        if user_signed_in?
+            @neighborhood_post = NeighborhoodPost.new
+            #redirect_to users_path
+        else
+            redirect_to root_url
+        end
     end
 
     def show

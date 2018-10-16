@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_12_110042) do
+ActiveRecord::Schema.define(version: 2018_10_15_161726) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,48 @@ ActiveRecord::Schema.define(version: 2018_10_12_110042) do
     t.float "longitude"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "neighborhood_post_likes", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "neighborhood_post_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["neighborhood_post_id"], name: "index_neighborhood_post_likes_on_neighborhood_post_id"
+    t.index ["user_id"], name: "index_neighborhood_post_likes_on_user_id"
+  end
+
+  create_table "neighborhood_posts", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "neighborhood_id"
+    t.string "post"
+    t.string "image"
+    t.string "video_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["neighborhood_id"], name: "index_neighborhood_posts_on_neighborhood_id"
+    t.index ["user_id"], name: "index_neighborhood_posts_on_user_id"
+  end
+
+  create_table "neighborhood_replies", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "neighborhood_post_id"
+    t.string "reply"
+    t.string "image"
+    t.string "video_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["neighborhood_post_id"], name: "index_neighborhood_replies_on_neighborhood_post_id"
+    t.index ["user_id"], name: "index_neighborhood_replies_on_user_id"
+  end
+
+  create_table "neighborhood_reply_likes", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "neighborhood_reply_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["neighborhood_reply_id"], name: "index_neighborhood_reply_likes_on_neighborhood_reply_id"
+    t.index ["user_id"], name: "index_neighborhood_reply_likes_on_user_id"
   end
 
   create_table "neighborhoods", force: :cascade do |t|

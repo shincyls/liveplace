@@ -1,0 +1,30 @@
+<% @user.neighborhood.neighborhood_posts.order("created_at desc").each do |p| %>
+<div class="card mt-2 mb-2" id="<%=p.neighborhood.id%>-<%=p.id%>">
+    <div class="card-header p-1">
+        <span class="username small"><%= @user.last_name %></span>
+        <span class="username small"><%= distance_of_time_in_words(p.created_at, DateTime.now) %></a></span>
+    </div>
+    <div class="card-body p-1">
+        <span class="small"><%= p.post %></span>
+            <div class="button-group">
+            <%= link_to "Comment", "#", class: "small" %>	
+            <% if current_user %>
+                <%= link_to "Like", "#", class: "small" %> <%= link_to "Delete", "#", class: "small" %>
+            <% end %>
+        </div>
+    </div>
+    <div class="card-footer p-1">
+        <div class="post-replies">
+            <%= render partial: 'neighborhoods/reply', locals: { post: p } %>
+        </div>
+        <%= form_with url: neighborhood_replies_path, remote: true do |f| %>
+            <div class="input-group mt-2 mb-2">
+                <%= f.hidden_field :neighborhood_post_id, value: p.id %>
+                <%= f.text_field :reply, placeholder: "Reply Something", class: "form-control form-control-sm" %>
+                <%= f.submit "Reply", class: "btn btn-outline-success btn-sm" %>
+            </div>
+        <% end %>
+    </div>
+</div>
+<% end %>
+

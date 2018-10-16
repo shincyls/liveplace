@@ -1,0 +1,4 @@
+<% post.neighborhood_replies.order("created_at desc").each do |r| %>
+    <div class="reply small"><%= r.user.first_name %> <%= r.reply %></div>
+<% end %>
+

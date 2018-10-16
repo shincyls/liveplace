@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Post:</strong>
+  <%= @neighborhood_post.post %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @neighborhood_post.image %>
+</p>
+
+<p>
+  <strong>Video url:</strong>
+  <%= @neighborhood_post.video_url %>
+</p>
+
+<p>
+  <strong>Neighborhood:</strong>
+  <%= @neighborhood_post.neighborhood %>
+</p>
+
+<%= link_to 'Edit', edit_neighborhood_post_path(@neighborhood_post) %> |
+<%= link_to 'Back', neighborhood_posts_path %>

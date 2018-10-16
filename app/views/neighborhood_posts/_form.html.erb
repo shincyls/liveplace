@@ -1,0 +1,37 @@
+<%= form_with(model: neighborhood_post, local: true) do |form| %>
+  <% if neighborhood_post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(neighborhood_post.errors.count, "error") %> prohibited this neighborhood_post from being saved:</h2>
+
+      <ul>
+      <% neighborhood_post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :post %>
+    <%= form.text_field :post %>
+  </div>
+
+  <div class="field">
+    <%= form.label :image %>
+    <%= form.text_field :image %>
+  </div>
+
+  <div class="field">
+    <%= form.label :video_url %>
+    <%= form.text_field :video_url %>
+  </div>
+
+  <div class="field">
+    <%= form.label :neighborhood_id %>
+    <%= form.text_field :neighborhood_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

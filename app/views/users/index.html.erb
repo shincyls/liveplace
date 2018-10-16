@@ -1,13 +1,13 @@
-<div class="container mt-4">
+<div class="container mt-4 mb-4">
     <div class="row">
-        <div class="col-lg-3 fixed-left" style="border:1px solid; background-color:whitesmoke;">
+        <div class="col-lg-2 fixed-left p-3" style="border:1px solid; background-color:whitesmoke;">
             <p>Welcome, <%= @user.username %></p>
             <p><%= @user.neighborhood.name %></p>
             <div style="border:1px solid;">Lobby</div>
             <div style="border:1px solid;">Market</div>
             <div style="border:1px solid;">Event</div>
             <div style="border:1px solid;">Recycle</div>
-            <div style="border:1px solid;">Panel 5</div>
+            <div style="border:1px solid;">Directory</div>
             <p><%= @user.town.name %></p>
             <div style="border:1px solid;">Panel 1</div>
             <div style="border:1px solid;">Panel 2</div>
@@ -15,38 +15,25 @@
             <div style="border:1px solid;">Panel 4</div>
             <div style="border:1px solid;">Panel 5</div>
         </div>
-        <div class="col-lg-6" style="border:1px solid; background-color:whitesmoke;">
-            <p><%= @user.neighborhood.name %>, <%= @user.town.name %></p>
 
-            <div class="card">
-                    <div class="card-header p-1">
-                        <span class="username small"><a href="/profile/<%= @user.town.name %>"><%= @user.town.name %></a></span>
-                        <span class="username small"><a href="/tweet/user/<%=@user.town.name %>"><%= @user.town.name %></a></span>
-                        <span class="username small"><%= @user.town.name %></a></span>
-                    </div>
-                    <div class="card-body  p-1">
-                        <span class="by-story"><a href="/tweet/<%=@user.id%>"><%=@user.town.name %></a></span>
-                        <div class="button-group">
-                            <%= link_to "Comment", "#", class: "small" %>			
-                            <% if current_user %>
-                                <%= link_to "Like", "#", class: "small" %> <%= link_to "Delete", "#", class: "small" %>
-                            <% end %>
-                        </div>
-                    </div>
-                    <div class="card-footer p-1">
-                        <form class="form" action="/tweet" method="post">
-                            <div class="input-group mb-3">
-                                <input type="text" class="form-control form-control-sm" placeholder="Reply Twee@user.." name="title">
-                                <div class="input-group-append">
-                                    <button class="btn btn-outline-secondary btn-sm" type="submit">Reply</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
+        <div class="col-lg-7 p-3" style="border:1px solid; background-color:whitesmoke;">
+
+            <h5>Welcome Back to <%= @user.neighborhood.name %>, <%= @user.town.name %></h5>
+
+            <%= form_for @neighborhood_post, remote: true do |f| %>
+                <div class="input-group mt-2 mb-2">
+                    <%= f.text_field :post, placeholder: "Say Something", class: "form-control form-control-sm", id: "post" %>
+                    <%= f.submit "Post", class: "btn btn-outline-success btn-sm" %>
                 </div>
+            <% end %>
+            
+            <div id="neighborhood-posts">
+                <%= render partial: 'neighborhoods/post' %>
+            </div>
+
 
         </div>
-        <div class="col-lg-3 fixed-right" style="border:1px solid; background-color:whitesmoke;">
+        <div class="col-lg-3 fixed-right p-3" style="border:1px solid; background-color:whitesmoke;">
             <p>Sponsor</p>
         </div>
     </div>

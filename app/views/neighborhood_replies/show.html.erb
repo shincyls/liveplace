@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Reply:</strong>
+  <%= @neighborhood_reply.reply %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @neighborhood_reply.image %>
+</p>
+
+<p>
+  <strong>Video url:</strong>
+  <%= @neighborhood_reply.video_url %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @neighborhood_reply.user %>
+</p>
+
+<p>
+  <strong>Neighborhood post:</strong>
+  <%= @neighborhood_reply.neighborhood_post %>
+</p>
+
+<%= link_to 'Edit', edit_neighborhood_reply_path(@neighborhood_reply) %> |
+<%= link_to 'Back', neighborhood_replies_path %>
