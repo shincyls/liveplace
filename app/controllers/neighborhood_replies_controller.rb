@@ -1,6 +1,5 @@
 class NeighborhoodRepliesController < ApplicationController
   # before_action :set_neighborhood_reply, only: [:show, :edit, :update, :destroy]
-  before_action :create_neighborhood_reply, only: [:create]
   before_action :neighborhood_reply_params, only: [:create, :edit]
 
   def edit
@@ -39,11 +38,6 @@ class NeighborhoodRepliesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_neighborhood_reply
       @neighborhood_reply = NeighborhoodReply.find(params[:id])
-    end
-
-    # Create Neighborhood
-    def create_neighborhood_reply
-      neighborhood_reply = NeighborhoodReply.new
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

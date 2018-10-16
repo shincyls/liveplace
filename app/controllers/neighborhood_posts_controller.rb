@@ -1,6 +1,5 @@
 class NeighborhoodPostsController < ApplicationController
   # before_action :set_neighborhood_post, only: [:show]
-  # before_action :create_neighborhood_post, only: [:create]
   before_action :neighborhood_post_params, only: [:create, :edit]
 
   def post

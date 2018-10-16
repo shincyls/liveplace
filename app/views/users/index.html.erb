@@ -20,7 +20,7 @@
 
             <h5>Welcome Back to <%= @user.neighborhood.name %>, <%= @user.town.name %></h5>
 
-            <%= form_for @neighborhood_post, remote: true do |f| %>
+            <%= form_for :neighborhood_post, url: neighborhood_posts_path, remote: true do |f| %>
                 <div class="input-group mt-2 mb-2">
                     <%= f.text_field :post, placeholder: "Say Something", class: "form-control form-control-sm", id: "post" %>
                     <%= f.submit "Post", class: "btn btn-outline-success btn-sm" %>

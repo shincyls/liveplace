@@ -17,7 +17,7 @@
         <div class="post-replies">
             <%= render partial: 'neighborhoods/reply', locals: { post: p } %>
         </div>
-        <%= form_with url: neighborhood_replies_path, remote: true do |f| %>
+        <%= form_for :neighborhood_reply, url: neighborhood_replies_path, remote: true do |f| %>
             <div class="input-group mt-2 mb-2">
                 <%= f.hidden_field :neighborhood_post_id, value: p.id %>
                 <%= f.text_field :reply, placeholder: "Reply Something", class: "form-control form-control-sm" %>
