@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
     before_action :set_user, only: [:show, :place, :sethome]
-    before_action :page_user, only: [:index, :home]
+    before_action :valid_user, only: [:index, :home]
     # before_action :home_params, only: [:set_home]
     
     def index
@@ -59,8 +59,8 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
     end
 
-    def page_user
-        @user = User.find(current_user.id)
+    def valid_user
+        user_signed_in? && @user = User.find(current_user.id)
     end
 
     def user_params
